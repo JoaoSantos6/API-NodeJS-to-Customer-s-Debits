@@ -7,20 +7,18 @@ chamam os serviços apropriados.
     - Retorna a resposta com base na validação.*/
 const clientService = require("../services/clientService.js");
 
-const registerClient = (req, res) => {
-    const errors = clientService.validateClientData(req.body);
-
-    if (errors.length > 0) {
-        return res.status(400).json({ message: "Parâmetros inválidos", errors });
+const registerClient = async (req, res) => {
+    try {
+        const client = await clientService.registerClient(req.body);
+        res.status(200).json({ message: "Cliente registrado com sucesso", client });
+        console.log("executou: registerClient");
+        console.log("______________________________");
+    } catch (error) {
+        res.status(400).json({ message: "Parâmetros inválidos", errors: error.message });
     }
-
-    // Aqui, você poderia adicionar lógica adicional para registrar o cliente,
-    // como salvar os dados no banco de dados. Vou apenas simular essa lógica.
-
-    res.status(200).json({ message: "Cliente registrado com sucesso" });
 }
 
 module.exports = {
     registerClient,
 };
-    
+

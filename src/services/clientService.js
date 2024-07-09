@@ -1,11 +1,6 @@
-/* Contêm a lógica de negócios da aplicação. Eles são responsáveis
- por processar os dados recebidos dos controladores e interagir com
-  os modelos, se necessário.
-    clintService.js
-    - Valida os dados do cliente.
-    - Centraliza a lógica de validação, tornando mais fácil a manutenção 
-    e a reutilização em diferentes partes da aplicação.
-*/
+const { loadClientModel } = require('../db/modelLoader.js');
+const clientModel = loadClientModel();
+
 const validateClientData = (data) => {
     const errors = [];
 
@@ -43,6 +38,15 @@ const validateClientData = (data) => {
     return errors;
 }
 
+const registerClient = async (clientData) => {
+    const errors = validateClientData(clientData);
+    if (errors.length > 0) {
+        throw new Error(errors.join(", "));
+    }
+    return await clientModel.saveClient(clientData);
+};
+
 module.exports = {
     validateClientData,
+    registerClient,
 };
