@@ -46,7 +46,11 @@ const registerClient = async (clientData) => {
     return await clientModel.saveClient(clientData);
 };
 
+const searchClient = (clientData) => {
+    return clientModel.searchClient(clientData);
+};
+
 module.exports = {
-    validateClientData,
     registerClient,
+    searchClient,
 };

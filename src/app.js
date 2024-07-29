@@ -18,5 +18,6 @@ app.use((req, res, next) => {
 
 app.get('/SendEmail', emailController.sendEmail);
 app.post('/RegistrarCliente', clientController.registerClient);
+app.get('/ConsultarCliente', clientController.searchClient);
 
 module.exports = app;

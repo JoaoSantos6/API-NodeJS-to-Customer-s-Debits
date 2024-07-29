@@ -18,7 +18,29 @@ const registerClient = async (req, res) => {
     }
 }
 
+const searchClient = (req, res) => {
+    const document = req.query.CPF;
+
+    // const client = { CPF: document, nome: "Cliente Fictício" };
+
+    const client = clientService.searchClient(req.query.CPF);
+
+    
+    if (!document) return res.status(400).json({ message: "Parâmetro CPF é obrigatório"});
+
+    if (client.status == "NOK") return res.status(404).json(client);
+
+    try {
+        res.status(200).json(client);
+        console.log("executou: searchClient");
+        console.log("______________________________");
+    } catch (error) {
+        res.status(400).json({ message: "Parâmetros inválidos", errors: error.message });
+    }
+}
+
 module.exports = {
     registerClient,
+    searchClient,
 };
 

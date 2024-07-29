@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "f1e9f4ce-aefb-4303-924d-04f417d8cf7d",
+		"name": "API_Bank_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18145939"
+	},
+	"item": [
+		{
+			"name": "RegistrarCliente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CPF\": \"12345678900\",\r\n    \"Nome completo\": \"João da Silva\",\r\n    \"data de nascimento\": \"01/01/1990\",\r\n    \"valor da dívida\": \"1000,00\",\r\n    \"data de vencimento da dívida\": \"01/01/2025\",\r\n    \"possui acordo\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3002/RegistrarCliente"
+			},
+			"response": [
+				{
+					"name": "Sucesso",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CPF\": \"12345678900\",\r\n    \"Nome completo\": \"João da Silva\",\r\n    \"data de nascimento\": \"01/01/1990\",\r\n    \"valor da dívida\": \"1000,00\",\r\n    \"data de vencimento da dívida\": \"01/01/2025\",\r\n    \"possui acordo\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/RegistrarCliente"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "245"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f5-Iu14W7HGaa+3u2YNQd5BiFGSDbU\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jul 2024 14:38:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Cliente registrado com sucesso\",\n    \"client\": {\n        \"id\": 3,\n        \"CPF\": \"12345678900\",\n        \"Nome completo\": \"João da Silva\",\n        \"data de nascimento\": \"01/01/1990\",\n        \"valor da dívida\": \"1000,00\",\n        \"data de vencimento da dívida\": \"01/01/2025\",\n        \"possui acordo\": false\n    }\n}"
+				},
+				{
+					"name": "Erro - Booleano não enviado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CPF\": \"12345678900\",\r\n    \"Nome completo\": \"João da Silva\",\r\n    \"data de nascimento\": \"01/01/1990\",\r\n    \"valor da dívida\": \"1000,00\",\r\n    \"data de vencimento da dívida\": \"01/01/2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/RegistrarCliente"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"52-atNRMyD7k+4mBSCkFpV+bx3BGWk\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jul 2024 14:39:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Parâmetros inválidos\",\n    \"errors\": \"Possui acordo deve ser um booleano\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ConsultarCliente",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Sucesso",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/ConsultarCliente?CPF=12345678900",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"ConsultarCliente"
+							],
+							"query": [
+								{
+									"key": "CPF",
+									"value": "12345678900"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "151"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"97-UNKfxm3BXl7vfBbfzDXTyZfaBhA\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jul 2024 16:48:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"CPF\": \"12345678900\",\n    \"data de nascimento\": \"01/01/1990\",\n    \"valor da dívida\": \"1000,00\",\n    \"data de vencimento da dívida\": \"01/01/2025\",\n    \"possui acordo\": false\n}"
+				},
+				{
+					"name": "Erro - cliente não encontrado",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/ConsultarCliente?CPF=12345678901",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"ConsultarCliente"
+							],
+							"query": [
+								{
+									"key": "CPF",
+									"value": "12345678901"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-6WnMJ4kLBUZ26xGLLBlkTdfwk8g\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Jul 2024 16:51:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"NOK\",\n    \"response\": \"client não encontrado\"\n}"
+				}
+			]
+		}
+	]
+}
