@@ -1,7 +1,7 @@
 # API-NodeJS-to-Customer-s-Debits
 API em NodeJS para controle de dívidas bancárias do cliente, gerando boleto e enviando email aos clientes
 
-## Estrutura do Projeto
+## S.O.L.ID: Estrutura do Projeto
 
 Este projeto foi desenvolvido seguindo o Design Pattern SOLID:
 
