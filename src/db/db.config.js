@@ -3,12 +3,12 @@
     projeto poderá utilizar
 */
 const dbConfig = {
-    type: 'mockDB', // pode ser 'postgresql', 'mongodb', ou 'mockDB'
+    type: 'postgresql', // pode ser 'postgresql', 'mongodb', ou 'mockDB'
     postgresql: {
-        user: 'your_pg_user',
-        host: 'your_pg_host',
-        database: 'your_pg_database',
-        password: 'your_pg_password',
+        user: 'postgres',
+        host: 'localhost',
+        database: 'costumersBank',
+        password: '1234',
         port: 5432,
     },
     mongodb: {

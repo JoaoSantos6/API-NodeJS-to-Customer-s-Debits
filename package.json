@@ -2,12 +2,13 @@
   "name": "EnvioEmail",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts":{
+  "scripts": {
     "start:dev": "node --watch --no-warnings index.js"
   },
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^6.9.13",
+    "pg": "^8.12.0"
   }
 }

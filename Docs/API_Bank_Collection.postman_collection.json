@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"CPF\": \"12345678900\",\r\n    \"Nome completo\": \"João da Silva\",\r\n    \"data de nascimento\": \"01/01/1990\",\r\n    \"valor da dívida\": \"1000,00\",\r\n    \"data de vencimento da dívida\": \"01/01/2025\",\r\n    \"possui acordo\": false\r\n}",
+					"raw": "{\r\n    \"CPF\": \"12345678903\",\r\n    \"Nome completo\": \"João da Silva\",\r\n    \"data de nascimento\": \"01/01/1990\",\r\n    \"valor da dívida\": \"1000\",\r\n    \"data de vencimento da dívida\": \"01/01/2025\",\r\n    \"possui acordo\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -141,6 +141,63 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"message\": \"Parâmetros inválidos\",\n    \"errors\": \"Possui acordo deve ser um booleano\"\n}"
+				},
+				{
+					"name": "CPF já cadastrado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CPF\": \"12345678903\",\r\n    \"Nome completo\": \"João da Silva\",\r\n    \"data de nascimento\": \"01/01/1990\",\r\n    \"valor da dívida\": \"1000\",\r\n    \"data de vencimento da dívida\": \"01/01/2025\",\r\n    \"possui acordo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/RegistrarCliente"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"42-2th1OmgwLj3+yrhRtrV0Jz77TUo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Aug 2024 18:58:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Parâmetros inválidos\",\n    \"errors\": \"CPF já cadastrado\"\n}"
 				}
 			]
 		},
@@ -268,6 +325,58 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"status\": \"NOK\",\n    \"response\": \"client não encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "InitDB",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Tabela Iniciada",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/InitDB"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-2kDIM7nzZNiB/W5OUSULMSbkisQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Aug 2024 18:36:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Tabela criada com sucesso\"\n}"
 				}
 			]
 		}

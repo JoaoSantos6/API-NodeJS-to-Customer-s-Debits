@@ -38,6 +38,10 @@ const validateClientData = (data) => {
     return errors;
 }
 
+const DBCostumerInit = async () =>{
+    return await clientModel.DBCostumerInit();
+}
+
 const registerClient = async (clientData) => {
     const errors = validateClientData(clientData);
     if (errors.length > 0) {
@@ -53,4 +57,5 @@ const searchClient = (clientData) => {
 module.exports = {
     registerClient,
     searchClient,
+    DBCostumerInit,
 };
