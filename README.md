@@ -35,16 +35,4 @@ No terminal, execute: node index.js
 
 ## Postman:
 Para testar a API, você pode usar o Postman ou qualquer outra ferramenta de sua preferência.
-
-curl: 
-curl --location 'http://localhost:3002/RegistrarCliente' \
---header 'Content-Type: application/json' \
---data '{
-    "CPF": "12345678900",
-    "Nome completo": "João da Silva",
-    "data de nascimento": "01/01/1990",
-    "valor da dívida": "1000,00",
-    "data de vencimento da dívida": "01/01/2025",
-    "possui acordo": false
-}
-'
+A collection do projeto fica na pasta /Docs
