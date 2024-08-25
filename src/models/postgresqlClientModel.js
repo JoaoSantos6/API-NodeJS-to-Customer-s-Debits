@@ -69,7 +69,23 @@ const saveClient = async (clientData) => {
     return res.rows[0];
 };
 
+const searchClient = async (document) => {
+    
+        const cpf = document;  // Obtém o CPF dos parâmetros da URL
+        const query = `
+            SELECT cpf, nome_completo, data_nascimento, valor_divida, data_vencimento_divida, possui_acordo 
+            FROM costumers
+            WHERE cpf = $1;
+        `;
+        const values = [cpf];
+        const res = await pool.query(query, values);
+        return res.rows[0];
+    
+};
+
+
+
 
 module.exports = {
-    saveClient, DBCostumerInit,
+    saveClient, DBCostumerInit, searchClient
 };

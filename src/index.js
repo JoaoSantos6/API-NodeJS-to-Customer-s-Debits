@@ -3,6 +3,8 @@ Apenas inicializa o servidor e configura a porta
  na qual a aplicação irá rodar.*/
 const app = require("./app.js");
 
-app.listen(3002, () => {
-    console.log("Projeto rodando na porta 3002");
+port = 3002;
+
+app.listen(port, () => {
+    console.log("Projeto rodando na porta :",port);
 });
