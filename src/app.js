@@ -12,13 +12,15 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
      const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
      req.clientIp = clientIp;
-     console.log(`IP do cliente: ${clientIp}`);
+     console.log(`ip: ${clientIp}`);
+     console.log("data: ",new Date().toLocaleString());
      next();
  });
 
 app.get('/SendEmail', emailController.sendEmail);
 app.post('/RegistrarCliente', clientController.registerClient);
 app.get('/ConsultarCliente', clientController.searchClient);
+app.get('/ClientesDebitoAtrasado', clientController.overdueDebts);
 app.get('/InitDB', clientController.DBCostumerInit)
 
 module.exports = app;

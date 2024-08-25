@@ -7,4 +7,5 @@ port = 3002;
 
 app.listen(port, () => {
     console.log("Projeto rodando na porta :",port);
+    console.log('______________________________');
 });

@@ -54,8 +54,13 @@ const searchClient = async (document) => {
     return await clientModel.searchClient(document);
 };
 
+const getOverdueDebts = async () => {
+    return await clientModel.getOverdueDebts();
+}
+
 module.exports = {
     registerClient,
     searchClient,
     DBCostumerInit,
+    getOverdueDebts
 };

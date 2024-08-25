@@ -83,9 +83,21 @@ const searchClient = async (document) => {
     
 };
 
+const getOverdueDebts = async () => {
+    const query = `
+        SELECT cpf, nome_completo, data_nascimento, valor_divida, data_vencimento_divida, possui_acordo 
+        FROM costumers
+        WHERE data_vencimento_divida < CURRENT_DATE;
+    `;
 
+    const res = await pool.query(query);
+    return res.rows;  // Retorna todos os clientes com dívidas vencidas
+};
 
 
 module.exports = {
-    saveClient, DBCostumerInit, searchClient
+    saveClient, 
+    DBCostumerInit, 
+    searchClient,
+    getOverdueDebts
 };

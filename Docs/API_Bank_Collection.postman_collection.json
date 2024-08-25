@@ -379,6 +379,39 @@
 					"body": "{\n    \"message\": \"Tabela criada com sucesso\"\n}"
 				}
 			]
+		},
+		{
+			"name": "ClientesDebitoAtrasado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3002/ClientesDebitoAtrasado"
+			},
+			"response": [
+				{
+					"name": "Sucesso - Nenhum Cliente em atraso",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Sucesso - Clientes Encontrados",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/ClientesDebitoAtrasado"
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		}
 	]
 }
